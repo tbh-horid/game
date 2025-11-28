@@ -41,7 +41,7 @@
       y: 150, 
       width: 60, 
       height: 60, 
-      gravity: 0.2, 
+      gravity: 0.25, 
       lift: -5, 
       velocity: 0 
     };
@@ -109,7 +109,7 @@
       // controls distance between columns
       if (frame % 120 === 0) {
         let top = Math.random() * 250 + 50;
-        let gap = 440; // big vertical gap (easy mode)
+        let gap = 320; // big vertical gap (easy mode)
         pipes.push({
           x: canvas.width,
           width: 50,
@@ -119,7 +119,7 @@
       }
 
       pipes.forEach(pipe => {
-        pipe.x -= 1;
+        pipe.x -= 1.5;
 
         if (pipe.x + pipe.width < 0) {
           pipes.shift();
