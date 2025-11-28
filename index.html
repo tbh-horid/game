@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>index</title>
   <style>
     body {
@@ -16,6 +17,10 @@
     canvas {
       background: #4ec0ca;
       border: 2px solid #000;
+      width: 100vw;
+      height: 100vh;
+      max-width: 480px;
+      max-height: 800px;
     }
   </style>
 </head>
@@ -47,13 +52,16 @@
     let score = 0;
     let soundPlayed = false; // to avoid sound on restart
 
-    document.addEventListener("keydown", () => {
+    document.addEventListener("keydown", handleInput);
+    document.addEventListener("touchstart", handleInput);
+
+    function handleInput() {
       if (!gameOver) {
         bird.velocity = bird.lift;
       } else {
         restart();
       }
-    });
+    }
 
     function restart() {
       // stop and reset sound
